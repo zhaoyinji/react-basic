@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
+require('./css/style.scss');
+
+import { Header } from './components/header';
+import { Home } from './components/home';
 
 class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Hello world!</h1>
+                <Header/>
+                <Home/>
             </div>
         );
     }

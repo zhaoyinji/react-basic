@@ -6,7 +6,8 @@ export class Home extends React.Component {
         super();
         this.state = {
             user: props.user,
-            status: 0
+            status: 0,
+            homeLink: "My Home"
         }
     }
 
@@ -15,6 +16,10 @@ export class Home extends React.Component {
         this.setState({
             user: this.state.user
         });
+    }
+
+    onChangeLinkName() {
+        this.props.changeLink(this.state.homeLink);
     }
 
     render() {
@@ -32,8 +37,15 @@ export class Home extends React.Component {
                         {this.state.user.skills.map((skill, i) => <li key={i}>{skill}</li>)}
                     </ul>
                     <button className="btn btn-primary" onClick={() => this.onIncreaseAge()}>Increase age</button>
+                    <button className="btn btn-primary" onClick={this.props.greet}>Greeting</button>
+                    <button className="btn btn-primary" onClick={this.onChangeLinkName.bind(this)}>Change link</button>
                 </div>
             </div>
         );
     }
+}
+
+Home.propTypes = {
+    user: React.PropTypes.object,
+    greet: React.PropTypes.func
 }

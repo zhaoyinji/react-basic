@@ -9,12 +9,12 @@ class App extends React.Component {
     render() {
         var user = {
             name: "Zhao",
-            age: "34",
+            age: 34,
             skills: ['Javascript', 'CSS', 'HTML']
         };
         return (
             <div className="container">
-                <Header/>
+                <Header homeLink="Home" />
                 <Home user={user}/>
             </div>
         );
